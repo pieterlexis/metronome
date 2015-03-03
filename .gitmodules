@@ -1,0 +1,3 @@
+[submodule "yahttp"]
+	path = yahttp
+	url = https://github.com/cmouse/yahttp.git
