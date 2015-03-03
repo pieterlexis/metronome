@@ -22,3 +22,30 @@
 
 # joe backups
 *~
+# Created by https://www.gitignore.io
+
+### Autotools ###
+# http://www.gnu.org/software/automake
+
+Makefile.in
+
+# http://www.gnu.org/software/autoconf
+
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+/Makefile
+config.h*
+config.guess
+config.log
+config.status
+config.sub
+libtool
+githash*
+test-driver
+*.d

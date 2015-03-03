@@ -3,6 +3,7 @@ AC_PREREQ([2.61])
 AC_INIT([metronome], [git])
 
 AC_CONFIG_SRCDIR([src/metronome.cc])
+AC_CONFIG_HEADERS([config.h src/yahttp/yahttp/yahttp-config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([foreign tar-ustar -Wno-portability subdir-objects])
@@ -10,10 +11,10 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 AC_PROG_CC
 AC_PROG_CXX
-AX_CXX_COMPILE_STDCXX_11([], [optional])
+AX_CXX_COMPILE_STDCXX_11([], mandatory)
+LT_INIT
 AM_PROG_CC_C_O
 AC_PROG_MAKE_SET
-LT_INIT
 AC_CC_PIE
 AC_LD_RELRO
 
@@ -29,5 +30,7 @@ if test "$boost" == ""; then
   BOOST_TEST
 fi
 
-AC_CONFIG_FILES([Makefile])
+AC_CHECK_PROG([DOXYGEN], [doxygen], [doxygen], [true])
+
+AC_CONFIG_FILES([Makefile src/yahttp/yahttp/Makefile])
 AC_OUTPUT
